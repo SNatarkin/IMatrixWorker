@@ -41,11 +41,31 @@ public class IMatrixWorkerImpl implements IMatrixWorker {
 
     @Override
     public double[][] subtract(double[][] m1, double[][] m2) {
-        return new double[0][];
+        double[][] subtractMatrix = new double[m1.length][];
+        for (int i = 0; i < subtractMatrix.length; i++) {
+            subtractMatrix[i] = m1[i].clone();
+            for (int j = 0; j < subtractMatrix[i].length; j++) {
+                subtractMatrix[i][j] -= m2[i][j];
+            }
+        }
+        return subtractMatrix;
     }
 
     @Override
     public double[][] multiply(double[][] m1, double[][] m2) {
-        return new double[0][];
+        double[][] multiplyMatrix = new double[m1.length][m2[0].length];
+        for (int i = 0; i < multiplyMatrix.length; i++) {
+            for (int j = 0; j < multiplyMatrix[i].length; j++) {
+                multiplyMatrix[i][j] = 0;
+                for (int k = 0; k < m1[0].length; k++) {
+                    multiplyMatrix[i][j] += m1[i][k] * m2[k][j];
+
+                }
+            }
+        }
+        return multiplyMatrix;
     }
+
+
 }
+

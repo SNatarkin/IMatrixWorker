@@ -10,4 +10,7 @@ public interface IMatrixWorker {
     double[][] subtract(double[][] m1, double[][] m2);
 
     double[][] multiply(double[][] m1, double[][] m2);
+
+    // Реализовать метод считающий определитель матрицы методом Крамера
+
 }
